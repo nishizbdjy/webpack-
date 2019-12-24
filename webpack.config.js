@@ -8,6 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 //开始打包
 
 module.exports = {//暴露
+    devtool: "source-map", // + 生成映射源代码文件
     entry: './src/index.js', //项目入口(绝对路径)
     output: {
         filename: './bundle.js',//默认打包后的文件名(默认就是这个)
