@@ -52,7 +52,16 @@ module.exports = {//暴露
                             publicPath: "./images/",   		//  引入图片时会在路径前面加上该选项
                             outputPath: "images"            //  输出到dist下的images目录
                         }
-                    }
+                    },
+                    // use: [
+                    //     {
+                    //         loader: "url-loader",              // 处理图片文件返回链接
+                    //         options: {
+                    //             publicPath: "./images/",   		//  引入图片时会在路径前面加上该选项
+                    //             outputPath: "images"            //  输出到dist下的images目录
+                    //             limit : '102400'     //如果img文件小于400kb的时候 转换为base64格式的形式
+                    //         }
+                    //     }
                 ]
             },
         ]
