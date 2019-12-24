@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "webpack --config webpack.config.js "
+    "start": "webpack --config webpack.config.js "
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/nishizbdjy/webpack-/issues"
   },
-  "homepage": "https://github.com/nishizbdjy/webpack-#readme"
+  "homepage": "https://github.com/nishizbdjy/webpack-#readme",
+  "devDependencies": {
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  }
 }
