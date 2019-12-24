@@ -3,6 +3,8 @@ const path = require('path')//引入
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 //引入自动生成html结构
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// 导入清除插件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 //开始打包
 
 module.exports = {//暴露
@@ -68,6 +70,8 @@ module.exports = {//暴露
         // + 新增配置
         new HtmlWebpackPlugin({                                 //配置自动添加结构
             template: "public/index.html"	// template指定默认html模板
-        })
+        }),
+        // 调用清除打包目录插件
+        new CleanWebpackPlugin(),
     ],
 }
