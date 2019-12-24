@@ -8,10 +8,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 //开始打包
 module.exports = {//暴露
-    entry: './src/index.js', //项目入口(绝对路径)
+    // 用对象的方式配置多个入口
+    entry: {                //项目入口(绝对路径)
+        index: "./src/index.js",
+        about: "./src/about.js"
+    },
     output: {
-        filename: './bundle.js',//默认打包后的文件名(默认就是这个)
-        path: path.resolve('dist')//打包后的文件目录(默认也是这个) 
+        // 修改输出路径和文件名，[name]是动态的，读取entry的属性
+        filename: "[name].bundle.js",            //默认打包后的文件名(默认就是这个)
+        path: path.resolve("./dist")      //打包后的文件目录(默认也是这个) 
     },
 
     // 模块加载器配置项
