@@ -1,4 +1,6 @@
 const path = require('path')//引入
+//  导入提取样式的webpack插件 
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 //开始打包
 
 module.exports = {//暴露
@@ -9,23 +11,44 @@ module.exports = {//暴露
     },
     // 模块加载器配置项
     module: {
+        //     rules: [
+        //         {
+        //             test: /\.css$/,			// 匹配css扩展名文件
+        //             use: [					// 配置loader加载器
+        //                 'style-loader',		// 把css代码写入到网页中
+        //                 'css-loader'		// 读取css的代码
+        //             ]
+        //         },
+        //         {
+        //             test : /.less$/,  //匹配less
+        //             use : [
+        //                 'style-loader',
+        //                 'css-loader',
+        //                 'less-loader'
+        //             ]
+        //         }
+        //     ]
+        // }
         rules: [
             {
-                test: /\.css$/,			// 匹配css扩展名文件
-                use: [					// 配置loader加载器
-                    'style-loader',		// 把css代码写入到网页中
-                    'css-loader'		// 读取css的代码
-                ]
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({	// 提取css
+                    fallback: "style-loader",
+                    use: ["css-loader"]
+                })
             },
-            {
-                test : /.less$/,  //匹配less
-                use : [
-                    'style-loader',
-                    'css-loader',
-                    'less-loader'
-                ]
-            }
-        ]
-    }
 
+            {
+                test: /\.less$/,
+                use: ExtractTextPlugin.extract({	// 提取less
+                    fallback: "style-loader",
+                    use: ["css-loader", "less-loader"]
+                })
+            },
+
+        ]
+    },
+    plugins: [
+        new ExtractTextPlugin('style/style.css') // 提取到dist的style文件夹中
+    ]
 }
