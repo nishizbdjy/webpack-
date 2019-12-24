@@ -1,6 +1,8 @@
 const path = require('path')//引入
 //  导入提取样式的webpack插件 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+//引入自动生成html结构
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 //开始打包
 
 module.exports = {//暴露
@@ -45,7 +47,7 @@ module.exports = {//暴露
                     use: ["css-loader", "less-loader"]
                 })
             },
-                                                     //图片
+            //图片
             {
                 test: /\.(png|svg|jpg|gif)$/,// 匹配图片文件
                 use: [
@@ -61,6 +63,11 @@ module.exports = {//暴露
         ]
     },
     plugins: [
-        new ExtractTextPlugin('style/style.css') // 提取到dist的style文件夹中
-    ]
+        new ExtractTextPlugin('style/style.css'), // 提取到dist的style文件夹中
+
+        // + 新增配置
+        new HtmlWebpackPlugin({                                 //配置自动添加结构
+            template: "public/index.html"	// template指定默认html模板
+        })
+    ],
 }
