@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js ",
-    "dev": "webpack-dev-server --config webpack.config.js --open"
+    "dev": "webpack-dev-server --config config/webpack.dev.js --open",
+    "build": "webpack --config config/webpack.pro.js"
   },
   "repository": {
     "type": "git",
