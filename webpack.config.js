@@ -14,6 +14,10 @@ module.exports = {//暴露
         filename: './bundle.js',//默认打包后的文件名(默认就是这个)
         path: path.resolve(__dirname, 'dist')//打包后的文件目录(默认也是这个) 
     },
+    // + 开发服务配置
+    devServer: {
+        port: 8000 // 默认端口是8080
+    },
     // 模块加载器配置项
     module: {
         //     rules: [
