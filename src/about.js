@@ -1,3 +1,4 @@
+import jquery from './utils/jquery'//实验引用
 //多个入口
 let dd = document.createElement('h1')
 dd.innerHTML = `

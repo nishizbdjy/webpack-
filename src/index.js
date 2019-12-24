@@ -2,6 +2,7 @@
 import './index.less';
 import './style.css'
 import img from './images/2.gif'
+import jquery from './utils/jquery'
 let box = document.createElement('div')
 box.innerHTML = ` 
 <div class="box">这是node代码 no</div>

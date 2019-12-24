@@ -18,7 +18,12 @@ module.exports = {//暴露
         filename: "[name].bundle.js",            //默认打包后的文件名(默认就是这个)
         path: path.resolve("./dist")      //打包后的文件目录(默认也是这个) 
     },
-
+    // + 提取公共模块配置
+    optimization: {
+        splitChunks: {
+            chunks: 'all'	// 提取所有文件的共同模块
+        }
+    },
     // 模块加载器配置项
     module: {
         rules: [
